@@ -1,18 +1,19 @@
-# Konovator Screening Task — End-to-End Solution
+The task will have three stages and each stage is as we have mentioned below.
 
-This repository contains:
-- **Step 1:** Dockerized NodeJS API & ReactJS app, composed and exposed via Nginx reverse proxy.
-- **Step 2:** GitLab CI/CD pipeline targeting a self-hosted runner on a VM, deploying Docker images from a registry.
-- **Step 3:** A secure, scalable, and cost-effective plan to host a distributed Laravel stack (Nginx, PHP-FPM, Redis, MySQL, ElasticSearch).
+Step 1
+1. Dockerize NodeJs & ReactJS application (must be multi-stage & lightweight docker image).
+Setup it on Linux System with docker-compose. Expose it via Nginx reverse proxy
 
-## Quick Start (Local)
+Detail
+1. The system for the same will be Ubuntu OS 20.04
 
-```bash
-cd step1
-docker compose up -d --build
-open http://localhost
-```
+Step 2
+2. Design a GitLab CI/CD pipeline to deploy securely on the server via a self-hosted runner. (VM
+based)
 
-## CI/CD
+Step 3
 
-See `step2/.gitlab-ci.yml` and `step2/runner-setup.md`.
+Plan to host a Distributed setup of a Laravel Application, where the component is Web Server, PHP-
+FPM, Redis, MySQL, ElasticSearch
+
+a. Planned design must be Secure, Scalable & Cost Effective.
