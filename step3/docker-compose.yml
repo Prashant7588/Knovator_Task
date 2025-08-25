@@ -12,7 +12,7 @@ services:
     depends_on:
       - php
     ports:
-      # Use 8081 on host to avoid conflicts with anything already on 80
+      
       - "8081:80"
     volumes:
       - ./laravel:/var/www/html
@@ -93,10 +93,11 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.14.0
     environment:
       discovery.type: single-node
-      xpack.security.enabled: "false"     # DEV ONLY
+      xpack.security.enabled: "false"     
       ES_JAVA_OPTS: -Xms512m -Xmx512m
     ports:
-      - "9200:9200"                       # DEV ONLY
+      - "9200:9200"                       
     networks:
       - appnet
     restart: unless-stopped
+
