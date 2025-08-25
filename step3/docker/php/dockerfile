@@ -1,0 +1,24 @@
+
+FROM php:8.2-fpm-alpine
+
+RUN apk add --no-cache \
+    bash git curl unzip libzip-dev icu-dev oniguruma-dev libpng-dev \
+    autoconf g++ make
+
+RUN docker-php-ext-configure intl \
+ && docker-php-ext-install -j$(nproc) pdo_mysql bcmath intl zip gd opcache
+
+RUN pecl install redis \
+ && docker-php-ext-enable redis
+
+RUN curl -sS https://getcomposer.org/installer \
+ | php -- --install-dir=/usr/local/bin --filename=composer
+
+ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=1 \
+    PHP_OPCACHE_MAX_ACCELERATED_FILES=10000 \
+    PHP_OPCACHE_MEMORY_CONSUMPTION=128 \
+    PHP_OPCACHE_INTERNED_STRINGS_BUFFER=16
+
+WORKDIR /var/www/html
+
+CMD ["php-fpm"]
