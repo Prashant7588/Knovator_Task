@@ -4,4 +4,4 @@
 - Pushes to GitLab Container Registry
 - Deploys on a VM via a self-hosted runner using `docker compose`
 
-See `.gitlab-ci.yml` and `deploy/` for details.
+You can See `.gitlab-ci.yml` and `deploy/` for details.
